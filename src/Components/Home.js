@@ -4,6 +4,7 @@ import axios from 'axios';
 import Wallpaper from './Wallpaper';
 import QuickSearch from './QuickSearch';
 
+
 class Home extends React.Component {
     constructor() {
         super();

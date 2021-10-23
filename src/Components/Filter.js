@@ -38,7 +38,7 @@ class Filter extends React.Component {
             data: filterObj
         })
             .then(response => {
-                this.setState({ restaurants: response.data.restaurants, mealtype, location,pageCount : response.data.pageCount})
+                this.setState({ restaurants: response.data.restaurants, mealtype, location, pageCount: response.data.pageCount })
             })
             .catch()
 
@@ -75,7 +75,7 @@ class Filter extends React.Component {
             data: filterObj
         })
             .then(response => {
-                this.setState({ restaurants: response.data.restaurants, location ,pageCount : response.data.pageCount})
+                this.setState({ restaurants: response.data.restaurants, location, pageCount: response.data.pageCount })
             })
             .catch()
 
@@ -104,7 +104,7 @@ class Filter extends React.Component {
             data: filterObj
         })
             .then(response => {
-                this.setState({ restaurants: response.data.restaurants, sort ,pageCount : response.data.pageCount})
+                this.setState({ restaurants: response.data.restaurants, sort, pageCount: response.data.pageCount })
             })
             .catch()
     }
@@ -112,10 +112,10 @@ class Filter extends React.Component {
     handleCuisineChange = (cuisineId) => {
 
         const { location, mealtype, cuisine, sort, lcost, hcost, page } = this.state;
-        
+
         const index = cuisine.indexOf(cuisineId);
-        if ( index>= 0) {
-            cuisine.splice(index,1);
+        if (index >= 0) {
+            cuisine.splice(index, 1);
         }
         else {
             cuisine.push(cuisineId);
@@ -137,7 +137,7 @@ class Filter extends React.Component {
             data: filterObj
         })
             .then(response => {
-                this.setState({ restaurants: response.data.restaurants, cuisine,pageCount : response.data.pageCount })
+                this.setState({ restaurants: response.data.restaurants, cuisine, pageCount: response.data.pageCount })
             })
             .catch()
 
@@ -164,7 +164,7 @@ class Filter extends React.Component {
             data: filterObj
         })
             .then(response => {
-                this.setState({ restaurants: response.data.restaurants, lcost, hcost,pageCount : response.data.pageCount })
+                this.setState({ restaurants: response.data.restaurants, lcost, hcost, pageCount: response.data.pageCount })
             })
             .catch()
 
@@ -172,7 +172,7 @@ class Filter extends React.Component {
     }
 
     handlePageChange = (page) => {
-        const { location, mealtype, sort, cuisine,lcost,hcost } = this.state;
+        const { location, mealtype, sort, cuisine, lcost, hcost } = this.state;
         const filterObj = {
             mealtype: mealtype,
             location: location,
@@ -190,7 +190,7 @@ class Filter extends React.Component {
             data: filterObj
         })
             .then(response => {
-                this.setState({ restaurants: response.data.page, pageCount : response.data.pageCount })
+                this.setState({ restaurants: response.data.restaurants, pageCount: response.data.pageCount })
             })
             .catch()
 
@@ -201,19 +201,27 @@ class Filter extends React.Component {
     }
 
     render() {
-        const { restaurants, locations ,pageCount } = this.state;
+        const { restaurants, locations, pageCount } = this.state;
         return (
             <div>
-
-                <div id="myId" className="heading">Breakfast Places in Mumbai</div>
+                <div id="myId" className="headingjp">Breakfast Places in Mumbai</div>
 
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-sm-4 col-md-4 col-lg-3 filter-options">
-                            <div className="filter-heading">Filters / Sort</div>
+                            <div className="collapse1 pt-1">
+                                {/* <div className="filter-heading">Filters / Sort</div>
                             <span className="glyphicon glyphicon-chevron-down toggle-span" data-toggle="collapse"
-                                data-target="#filter"></span>
-                            <div id="filter" className="collapse show">
+                                data-target="#filter"></span> */}
+
+                                <span classNAme="fjp"> Filter/Sort</span>
+                                <span className="fas fa-chevron-down down-arrow pe-2 mt-2" styles="float: right;"
+                                    data-bs-toggle="collapse" data-bs-target="#filter2"></span>
+
+                            </div>
+
+                            <div id="filter2" className=" collapse show">
+
                                 <div className="Select-Location">Select Location</div>
                                 <select onChange={this.handleLocationChange}>
                                     <option value="0">Select</option>
@@ -276,7 +284,7 @@ class Filter extends React.Component {
                         </div>
                         <div className="col-sm- > 08 col-md-8 col-lg-9">
                             {restaurants.length > 0 ? restaurants.map((item, index) => {
-                                return <div className="Item" key={index} onClick ={() => this.handleNavigate(item._id)}>
+                                return <div className="Item" key={index} onClick={() => this.handleNavigate(item._id)}>
                                     <div>
                                         <div className="small-item vertical">
                                             <img className="img" src={`./${item.image}`} />
@@ -300,8 +308,8 @@ class Filter extends React.Component {
 
                             {restaurants.length > 0 ? <div className="pagination">
                                 <a href="#">&laquo;</a>
-                                {pageCount.map((pageNo) =>{
-                                     return <a href="#" onClick={() =>  this.handlePageChange(pageNo)}>{pageNo}</a>
+                                {pageCount.map((pageNo) => {
+                                    return <a href="#" onClick={() => this.handlePageChange(pageNo)}>{pageNo}</a>
                                 })}
                                 <a href="#" >&raquo;</a>
                             </div> : null}

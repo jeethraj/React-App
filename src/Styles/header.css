@@ -1,0 +1,44 @@
+.app-header {
+    background-color: red;
+    height: 50px;
+    padding-top: 5px;
+}
+
+.header-logo {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 28px;
+    color: red;
+    margin-left: 1%;
+    display: inline-block;
+}
+
+.user-button-gp {
+    float: right;
+    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.user-login {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.user-signup {
+    display: inline-block;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.jp-signin {
+    margin-top: 20px;
+    
+}
+.jp-signinb{
+    margin-left: 10px;
+}
